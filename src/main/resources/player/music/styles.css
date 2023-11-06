@@ -1,0 +1,9 @@
+.radio-button .text {
+    -fx-font-size: 40px;
+    -fx-fill: #fcfcfa;
+    -fx-font-family: "JetBrains Mono SemiBold";
+}
+
+.radio-button {
+    -fx-padding: 5px 0;
+}
