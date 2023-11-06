@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -11,52 +12,92 @@
 
 <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.music.MusicController">
    <children>
-      <AnchorPane style="-fx-background-color: #2d3144;">
-         <VBox fx:id="radioButtonContainer" layoutX="261.0" layoutY="170.0" prefHeight="618.0" prefWidth="1010.0" spacing="10.0" stylesheets="@styles.css" AnchorPane.bottomAnchor="292.0" AnchorPane.leftAnchor="261.0" AnchorPane.rightAnchor="649.0" AnchorPane.topAnchor="170.0">
-         </VBox>
-         <HBox alignment="BOTTOM_CENTER" layoutX="777.0" layoutY="946.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="65.0" prefWidth="367.0" spacing="30.0" style="-fx-background-color: #272b3b;">
+      <AnchorPane prefHeight="1076.0" prefWidth="1914.0" style="-fx-background-color: #2d3144;">
+         <VBox fx:id="radioButtonContainer" layoutX="254.0" layoutY="289.0" prefHeight="406.0" prefWidth="1000.0" spacing="10.0" stylesheets="@styles.css" AnchorPane.bottomAnchor="385.0" AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="666.0" AnchorPane.topAnchor="289.0" />
+         <HBox alignment="BOTTOM_CENTER" layoutX="254.0" layoutY="922.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="84.0" prefWidth="1413.0" spacing="30.0" style="-fx-background-color: #272b3b;">
             <padding>
                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <children>
-               <Button fx:id="random" alignment="CENTER" onAction="#randomizeSongs" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="" textFill="#252838">
+               <Label fx:id="currentPlay" layoutX="445.0" layoutY="38.0" prefHeight="43.0" prefWidth="439.0" text="Play" textAlignment="CENTER" textFill="#ab9df2">
                   <font>
-                     <Font name="JetBrainsMono NFM SemiBold" size="12.0" />
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
                   </font>
-               </Button>
+               </Label>
+               <Label prefHeight="36.0" prefWidth="6.0" textAlignment="CENTER" textFill="#ab9df2">
+                  <font>
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
+                  </font>
+               </Label>
+               <Label prefHeight="36.0" prefWidth="51.0" textAlignment="CENTER" textFill="#ab9df2">
+                  <font>
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
+                  </font>
+               </Label>
+<!--               <Button fx:id="random" alignment="CENTER" onAction="#randomizeSongs" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="" textFill="#252838">-->
+<!--                  <font>-->
+<!--                     <Font name="JetBrainsMono NFM SemiBold" size="12.0" />-->
+<!--                  </font>-->
+<!--               </Button>-->
                <Button fx:id="prev" alignment="CENTER" onAction="#goToPrev" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="󰒮" textFill="#252838">
                   <font>
                      <Font name="JetBrainsMono NFM SemiBold" size="12.0" />
                   </font>
+                  <HBox.margin>
+                     <Insets bottom="8.0" />
+                  </HBox.margin>
                </Button>
-               <Button fx:id="play" alignment="CENTER" onAction="#initialize" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="󰏤" textFill="#252838">
+               <Button fx:id="play" alignment="CENTER" onAction="#initialize" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #ab9df2;" text="󰏤" textFill="#252838">
+                  <font>
+                     <Font name="JetBrainsMono NFM SemiBold" size="20.0" />
+                  </font>
+               </Button>
+               <Button fx:id="next" alignment="CENTER" onAction="#goToNext" prefHeight="27.0" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="󰒭" textFill="#252838">
                   <font>
                      <Font name="JetBrainsMono NFM SemiBold" size="12.0" />
                   </font>
+                  <HBox.margin>
+                     <Insets bottom="8.0" />
+                  </HBox.margin>
                </Button>
-               <Button fx:id="next" alignment="CENTER" onAction="#goToNext" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="󰒭" textFill="#252838">
+               <Label layoutX="538.0" layoutY="38.0" prefHeight="36.0" prefWidth="25.0" textAlignment="CENTER" textFill="#ab9df2">
                   <font>
-                     <Font name="JetBrainsMono NFM SemiBold" size="12.0" />
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
                   </font>
-               </Button>
-               <Button fx:id="loop" alignment="CENTER" onAction="#toggleLoop" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="" textFill="#252838">
+               </Label>
+               <Label layoutX="925.0" layoutY="38.0" prefHeight="36.0" prefWidth="9.0" textAlignment="CENTER" textFill="#ab9df2">
                   <font>
-                     <Font name="JetBrainsMono NFM SemiBold" size="12.0" />
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
                   </font>
-               </Button>
+               </Label>
+               <Label layoutX="258.0" layoutY="38.0" prefHeight="36.0" prefWidth="24.0" textAlignment="CENTER" textFill="#ab9df2">
+                  <font>
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
+                  </font>
+               </Label>
+               <Label layoutX="272.0" layoutY="38.0" prefHeight="36.0" prefWidth="157.0" textAlignment="CENTER" textFill="#ab9df2">
+                  <font>
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
+                  </font>
+               </Label>
+               <Label layoutX="280.0" layoutY="38.0" prefHeight="36.0" prefWidth="124.0" textAlignment="CENTER" textFill="#ab9df2">
+                  <font>
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
+                  </font>
+               </Label>
+               <Label prefHeight="36.0" prefWidth="51.0" textAlignment="CENTER" textFill="#ab9df2">
+                  <font>
+                     <Font name="JetBrains Mono SemiBold" size="27.0" />
+                  </font>
+               </Label>
+<!--               <Button fx:id="loop" alignment="CENTER" onAction="#toggleLoop" prefWidth="30.0" style="-fx-background-color: #ab9df2;" text="" textFill="#252838">-->
+<!--                  <font>-->
+<!--                     <Font name="JetBrainsMono NFM SemiBold" size="12.0" />-->
+<!--                  </font>-->
+<!--               </Button>-->
             </children>
          </HBox>
-         <Label fx:id="current" layoutX="817.0" layoutY="897.0" prefHeight="36.0" prefWidth="284.0" textAlignment="CENTER" textFill="#ab9df2">
-            <font>
-               <Font name="JetBrains Mono SemiBold" size="27.0" />
-            </font>
-         </Label>
-         <Label layoutX="817.0" layoutY="844.0" text="Currently Playing: " textAlignment="CENTER" textFill="#78dce8">
-            <font>
-               <Font name="JetBrains Mono SemiBold" size="27.0" />
-            </font>
-         </Label>
-         <Label layoutX="261.0" layoutY="122.0" prefHeight="36.0" prefWidth="284.0" text="Songs:" textAlignment="CENTER" textFill="#ab9df2">
+         <Label layoutX="254.0" layoutY="225.0" prefHeight="36.0" prefWidth="284.0" text="Songs:" textAlignment="CENTER" textFill="#ab9df2">
             <font>
                <Font name="JetBrains Mono SemiBold" size="27.0" />
             </font>
@@ -66,11 +107,23 @@
                <Font name="JetBrains Mono SemiBold" size="27.0" />
             </font>
          </Label>
-         <Button fx:id="add" alignment="CENTER" layoutX="367.0" layoutY="128.0" onAction="#addSong" prefWidth="30.0" style="-fx-background-color: #ab9df2; -fx-background-radius: 30; -fx-font-size: 15;" text="+" textFill="#252838">
+         <Button fx:id="add" alignment="CENTER" layoutX="354.0" layoutY="228.0" onAction="#addSong" prefWidth="30.0" style="-fx-background-color: #ab9df2; -fx-background-radius: 30; -fx-font-size: 15;" text="+" textFill="#252838">
             <font>
                <Font name="JetBrainsMono NFM SemiBold" size="12.0" />
             </font>
          </Button>
+         <Label layoutX="254.0" layoutY="146.0" text="Hello, " textFill="#78dce8">
+            <font>
+               <Font name="JetBrains Mono NL SemiBold Italic" size="35.0" />
+            </font>
+         </Label>
+         <Label fx:id="username" layoutX="384.0" layoutY="146.0" prefHeight="48.0" prefWidth="147.0" textFill="#ab9df2">
+            <font>
+               <Font name="JetBrains Mono NL SemiBold Italic" size="35.0" />
+            </font>
+         </Label>
+         <ImageView fx:id="profile" fitHeight="228.0" fitWidth="247.0" layoutX="1588.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="waveform" fitHeight="215.0" fitWidth="497.0" layoutX="761.0" layoutY="695.0" pickOnBounds="true" preserveRatio="true" />
       </AnchorPane>
    </children>
 </StackPane>

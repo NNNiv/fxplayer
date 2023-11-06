@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -21,6 +23,9 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class MusicController {
+    public ImageView waveform;
+    public ImageView profile;
+    public Button add;
     int isRandom = 0;
     int isPlaying = 0;
     int isLooping = 0;
@@ -49,11 +54,17 @@ public class MusicController {
     VBox radioButtonContainer;
 
     @FXML
-    Label current;
-    @FXML
-    Button add;
+    Label currentPlay;
 
+    @FXML
+    Label username;
+
+    @FXML
     public void initialize() {
+        Image profilePic = new Image(new File("assets/profile.png").toURI().toString());
+        profile.setImage(profilePic);
+        Image waveformGIF = new Image(new File("assets/waveform.gif").toURI().toString());
+        waveform.setImage(waveformGIF);
         play.setOnAction(event -> togglePlayback(currentSongIndex));
         if (songs != null && songs.length > 0) {
             playSong(currentSongIndex);
@@ -95,7 +106,7 @@ public class MusicController {
     }
 
     public void displayCurrentSong() {
-        current.setText(songs[currentSongIndex].toString().substring(6));
+        currentPlay.setText(songs[currentSongIndex].toString().substring(6));
     }
 
     private void createRadioButtons() {
@@ -138,7 +149,7 @@ public class MusicController {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
                 clip = AudioSystem.getClip();
                 clip.open(audioInput);
-                play.setText("\uF04B");
+                play.setText("󰏤");
                 clip.setMicrosecondPosition(clipTime);
                 clip.start();
                 isPlaying = 1;
@@ -149,20 +160,22 @@ public class MusicController {
             System.out.println(e);
         }
     }
-
     @FXML
     protected void togglePlayback(int songIndex) {
         try {
             if (clip != null) {
                 if (isPlaying == 1) {
-                    play.setText("󰏤");
+                    waveform.setImage(null);
+                    play.setText("");
                     isPlaying = 0;
                     clipTime = clip.getMicrosecondPosition();
                     System.out.println("Pause Clip Time: " + clipTime);
                     clip.stop();
                     System.out.println("State: " + isPlaying);
                 } else {
-                    play.setText("\uF04B");
+                    Image waveformGIF = new Image(new File("assets/waveform.gif").toURI().toString());
+                    waveform.setImage(waveformGIF);
+                    play.setText("󰏤");
                     System.out.println("Play Clip Time: " + clipTime);
                     clip.setMicrosecondPosition(clipTime);
                     clip.start();

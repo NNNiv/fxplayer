@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="player.music.ProfileController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="473.0" prefWidth="282.0" style="-fx-border-color: #000000; -fx-background-color: #252838;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.music.ProfileController">
+   <children>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="41.0" layoutY="22.0">
+         <image>
+            <Image url="@../../../../../assets/profile.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="107.0" layoutY="256.0" prefHeight="19.0" prefWidth="68.0" text="Username" textFill="#78dce8">
+         <font>
+            <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="359.0" prefHeight="19.0" prefWidth="90.0" text="Time Played" textFill="#78dce8">
+         <font>
+            <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="287.0" prefHeight="19.0" prefWidth="61.0" text="Label" textFill="#ab9df2">
+         <font>
+            <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="389.0" prefHeight="19.0" prefWidth="68.0" text="Label" textAlignment="CENTER" textFill="#ab9df2">
+         <font>
+            <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
