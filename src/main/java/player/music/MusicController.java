@@ -1,6 +1,10 @@
 package player.music;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -10,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Modality;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +31,11 @@ public class MusicController {
     public ImageView waveform;
     public ImageView profile;
     public Button add;
+    @FXML
+    public Button edit;
+    public Label userName;
+    public Label displayName;
+    public Label elapsedTime;
     int isRandom = 0;
     int isPlaying = 0;
     int isLooping = 0;
@@ -34,9 +44,6 @@ public class MusicController {
     Clip clip;
     File media = new File("media");
     File[] songs = media.listFiles();
-
-    @FXML
-    Button random;
 
     @FXML
     Button prev;
@@ -48,16 +55,10 @@ public class MusicController {
     Button next;
 
     @FXML
-    Button loop;
-
-    @FXML
     VBox radioButtonContainer;
 
     @FXML
     Label currentPlay;
-
-    @FXML
-    Label username;
 
     @FXML
     public void initialize() {
@@ -76,7 +77,7 @@ public class MusicController {
     public void addSong() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select a song to add");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files", "*.mp3", "*.wav", "*.flac", "*.m4a")); // Add more extensions if needed
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio Files",  "*.wav"));
 
         File selectedFile = fileChooser.showOpenDialog(new Stage());
 
@@ -91,7 +92,6 @@ public class MusicController {
             }
         }
     }
-
 
     private void copyFile(File sourceFile, File destFile) throws IOException {
         FileInputStream inputStream = new FileInputStream(sourceFile);
@@ -128,9 +128,6 @@ public class MusicController {
             radioButtonContainer.getChildren().add(radioButton);
         }
     }
-    //            radioButton.setStyle(
-//                    "-fx-font-size: 14px; fx-text-fill: #FFFFFF;"
-//                    );
     void playSong(int songIndex) {
         try {
             if (songs == null || songIndex < 0 || songIndex >= songs.length) {
@@ -231,4 +228,31 @@ public class MusicController {
             isRandom = 0;
         }
     }
+
+    @FXML
+    protected void editName(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editUserName.fxml"));
+            Parent root = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.setTitle("Edit Username");
+            Scene scene = new Scene(root);
+            dialogStage.setScene(scene);
+
+            EditUsernameController editUsernameController = loader.getController();
+            editUsernameController.setStage(dialogStage);
+
+            dialogStage.showAndWait();
+
+            String newUsername = editUsernameController.getNewUsername();
+            if (newUsername != null) {
+                 userName.setText(newUsername);
+                 displayName.setText(newUsername);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }

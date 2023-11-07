@@ -117,13 +117,35 @@
                <Font name="JetBrains Mono NL SemiBold Italic" size="35.0" />
             </font>
          </Label>
-         <Label fx:id="username" layoutX="384.0" layoutY="146.0" prefHeight="48.0" prefWidth="147.0" textFill="#ab9df2">
+         <Label fx:id="displayName" layoutX="384.0" layoutY="146.0" prefHeight="48.0" prefWidth="147.0" textFill="#ab9df2">
             <font>
                <Font name="JetBrains Mono NL SemiBold Italic" size="35.0" />
             </font>
          </Label>
-         <ImageView fx:id="profile" fitHeight="228.0" fitWidth="247.0" layoutX="1588.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="profile" fitHeight="228.0" fitWidth="247.0" layoutX="1596.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="waveform" fitHeight="215.0" fitWidth="497.0" layoutX="761.0" layoutY="695.0" pickOnBounds="true" preserveRatio="true" />
+         <Label layoutX="1657.0" layoutY="525.0" prefHeight="31.0" prefWidth="157.0" text="Username:" textFill="#78dce8">
+            <font>
+               <Font name="JetBrainsMono NF SemiBold" size="20.0" />
+            </font>
+            <graphic>
+               <Button fx:id="edit" alignment="CENTER" onAction="#editName" prefHeight="17.0" prefWidth="22.0" style="-fx-background-color: #ab9df2;" text="" textFill="#252838">
+                  <font>
+                     <Font name="JetBrainsMono NFM SemiBold" size="13.0" />
+                  </font>
+               </Button>
+            </graphic>
+         </Label>
+         <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="1662.0" layoutY="584.0" prefHeight="48.0" prefWidth="133.0" text="Nived" textAlignment="CENTER" textFill="#ab9df2">
+            <font>
+               <Font name="JetBrains Mono NL SemiBold" size="24.0" />
+            </font>
+         </Label>
+         <Label fx:id="elapsedTime" alignment="CENTER" contentDisplay="CENTER" layoutX="1669.0" layoutY="736.0" prefHeight="48.0" prefWidth="133.0" textAlignment="CENTER" textFill="#ab9df2">
+            <font>
+               <Font name="JetBrains Mono NL SemiBold" size="24.0" />
+            </font>
+         </Label>
       </AnchorPane>
    </children>
 </StackPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="473.0" prefWidth="282.0" style="-fx-border-color: #000000; -fx-background-color: #252838;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.music.ProfileController">
+<AnchorPane prefHeight="473.0" prefWidth="282.0" style="-fx-border-color: #000000; -fx-background-color: #252838;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.music.EditUsernameController">
    <children>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="41.0" layoutY="22.0">
          <image>
